@@ -1,4 +1,5 @@
 const mysqlConnection = require('../config/db.config');
+const jwt = require('jsonwebtoken');
 
 
 //crear usuario
@@ -63,8 +64,36 @@ const deleteUser = (req, res) => {
       }); 
   }
 
+// LOGIN
+const login = (req,res)=>{
+
+  let {email,password} = req.body;
+
+  if(!email) return res.status(400).json({"msg":"verifica tu email"});
+  if(!password) return res.status(400).json({"msg":"verifica tu password"});
+
+  mysqlConnection.query('SELECT id FROM `usuario` WHERE email = ? AND password = ?',[email,password],(err,rows)=>{
+
+    if(!err){
+    
+      let userID = rows[0].id;
+      if(!rows.length) return res.json({"msg":"Email o Password incorrecto"});
+      const token = jwt.sign({userID},"process.env.JWT_KEY")
+      return res.json({"id":userID,token});
+    }else{
+      console.log(err);
+    }
+  })
+}
+
+
+
+
+
   //exportando los controladores
   exports.createUser = createUser;
   exports.modifyUser = modifyUser;
   exports.deleteUser = deleteUser;
   exports.getData = getData;
+  exports.login = login;
+  

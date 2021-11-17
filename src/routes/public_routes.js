@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 //importando controladores
-const {createUser,modifyUser,deleteUser,getData} = require('../controllers/users.controllers');
+const {createUser,modifyUser,deleteUser,getData,login} = require('../controllers/users.controllers');
 const {createTask, getTask,modifyTask,deleteTask} = require('../controllers/todos.controllers');
 
 //    =>/users
@@ -19,6 +19,9 @@ router.post('/tasks',createTask);
 router.get('/tasks',getTask);
 router.put('/tasks/:id',modifyTask);
 router.delete('/tasks/:id',deleteTask);
+
+// login
+router.post('/login',login);
 
 
 module.exports = router;
