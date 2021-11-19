@@ -1,7 +1,7 @@
 import React from "react";
-import Card from '../components/Card'
+import Card from '../components/CardHome'
 
-const Details = () => {
+const Shelving = () => {
 
     return ( 
         <>
@@ -12,4 +12,4 @@ const Details = () => {
      );
 }
  
-export default Details; 
+export default Shelving; 

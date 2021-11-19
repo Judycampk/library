@@ -1,9 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Home from "./views/Home"
-import Demo from "./views/Demo"
-import Details from "./views/Details"
+import Home from "./views/Home";
+import Login from "./views/Login";
+import Shelving from "./views/Shelving";
+import Login from "./views/Login";
+import Shelving from "./views/Shelving";
 
 
 function App() {
@@ -15,11 +17,11 @@ function App() {
           <Route exact path="/">
             <Home/>
           </Route>
-          <Route exact path="/demo">
-            <Demo/>
+          <Route exact path="/login">
+            <Login/>
           </Route>
-          <Route exact path="/demo/:id">
-            <Details/>
+          <Route exact path="/login/:id">
+            <Shelving/>
           </Route>
           <Route to="*">
             <h2>Not found - 404</h2>

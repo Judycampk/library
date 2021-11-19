@@ -1,6 +1,6 @@
 import React from "react";
 
-const Card = () => {
+const CardHome = () => {
 
     return (
         <div class="card mb-3 mt-5 mx-auto" style={{maxWidth: '540px'}}>
@@ -20,4 +20,4 @@ const Card = () => {
     );
 }
 
-export default Card;
+export default CardHome;
